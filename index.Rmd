@@ -8,8 +8,8 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: AnhStudiesData/USAsthmaPrevalenceStudy
-url: 'https\://anhstudiesdata.github.io/USAsthmaPrevalenceStudy/'
+github-repo: AnhStudiesData/USAsthmaPrevalence2017
+url: 'https\://anhstudiesdata.github.io/USAsthmaPrevalence2017/'
 ---
 
 # Abstract {-}
