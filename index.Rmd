@@ -20,6 +20,6 @@ Every year, millions of Americans are diagnosed with asthma - a life-threatening
 ```{r include=FALSE}
 # automatically create a bib database for R packages
 knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'tidyverse', 'scales', 'viridis', 'cowplot', 'gridExtra', 'grid', 'usmap'
 ), 'packages.bib')
 ```
