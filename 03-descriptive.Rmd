@@ -11,9 +11,19 @@ The function in _Exhibit 2_ calculates the probability a respondent had asthma, 
 
 _Exhibit 1 - Overview of the Data_
 
+```{r install, message = F, warning = F, echo = F}
+install.packages('tidyverse')
+install.packages('scales')
+install.packages('viridis')
+install.packages('cowplot')
+install.packages('gridExtra')
+install.packages('grid')
+install.packages('usmap')
+```
+
 ```{r library_and_data, message = F, warning = F}
 ##Visualisation libraries
-library(dplyr)
+library(tidyverse)
 library(scales)
 library(viridis)
 library(cowplot)
