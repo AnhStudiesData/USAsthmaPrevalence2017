@@ -14,11 +14,13 @@ The first part of the codes below demonstrated original data "read-in" and the p
 
 The original dataset can be downloaded [here](https://drive.google.com/open?id=1u5Fu6oHnUapxbkQAhJo3uPt9JkITyDwW). The cleaned dataset used in this study can be downloaded [here](https://drive.google.com/file/d/1Uhs6VWlGVUhpbofnZH54kxbO752vt_D0/view?usp=sharing). 
 
+Since the original dataset was large, the author set 'eval=FALSE' for this section. The cleaned dataset used for analysis will be found in the next section.
+
 ##Packages and Data Read-In
 
 **1. Data Read-In**
 
-```{r data, message = F, warning = F}
+```{r data, message = F, warning = F, eval=F}
 ##Preparation
 library(tidyverse)
 library(scales)
@@ -32,7 +34,7 @@ health <- read_csv("./Data/Health2017.csv", guess_max = 69000)
 
 The following code selects the relevant columns for this project. 
 
-```{r variables}
+```{r variables, eval=F}
 h17 <- health %>%
   select(`_ASTHMS1`, `_RACE`, `_AGE_G`, `_BMI5CAT`, `_EDUCAG`, 
          `INCOME2`, `_RFSMOK3`, `_TOTINDA`, SEX, ADDEPEV2,`_STATE`, 
@@ -49,7 +51,7 @@ __1. Naming Variables__
 
 The columns are then renamed to make it easier to read.
 
-```{r colnames}
+```{r colnames, eval=F}
 
 names(h17) <- c("AsthmaStatus", "Race", "AgeGroup", "BMICategory", 
                 "EducationLevel", "IncomeGroup", "CurrentSmoker", 
@@ -64,7 +66,7 @@ __2. Missing Values__
 
 The original data set assigns the values "7", "77", "777", "888", "9", "98", "99" or "999" to missing values, which represent "I don't know," "I don't remember," respondents refusal to answer questions, or missing responses due to other reasons. Since it wasn't clear which missing cases the numbers above represent, they were all replaced by "NAs." Blanks received similar treatment since they occur completely at random.
 
-```{r HNA}
+```{r HNA, eval=F}
 h_na <- h17 %>%
   mutate(IncomeGroup = replace(IncomeGroup, IncomeGroup == 9, NA),
          Sex = replace(Sex, Sex == 9, NA),
@@ -104,7 +106,7 @@ _3.1 Binary Variables_
 
 The following codes reassign dummy values to binary variables. Binary variables in this data set were represented by number 1 or 2. For consistency, they were standardized to number 0 and 1. This change also made it easier to run regression models later. 
 
-```{r binaryfix}
+```{r binaryfix, eval=F}
 hbinfix <- h_na %>%
   mutate(Sex = as.numeric(Sex == ifelse(Sex == 2, 0, 1)),
          DepressiveDisorder = as.numeric(DepressiveDisorder == ifelse(
@@ -129,7 +131,7 @@ _3.2 Non-binary Variables_
 Similar to binary variables, other categorical variables were also put into groups represented by integers. The following codes return the original meanings to the integer representations. The new variable names were modified from the questionnaire used to collect data for this data set.
 
 
-```{r nonbinaryfix}
+```{r nonbinaryfix, eval=F}
 hfix <- hbinfix %>%
   #mutate(AsthmaAge = replace(AsthmaAge, AsthmaAge == 97, 10)) %>%
          #AsthmaAge = replace(AsthmaAge, AsthmaAge %in% c(11:20), "Age 11 to 20"),
@@ -279,7 +281,7 @@ __4. Finalized Dataset__
 
 The codes below arrange the columns in the data set into the desired order and split the data set into smaller ones.
 
-```{r finalData}
+```{r finalData, eval=F}
 health2017 <- hfix %>% 
   select(AsthmaStatus, AgeGroup, Sex, Race, IncomeGroup, EducationLevel, 
          BMICategory, CurrentSmoker, Exercise, DepressiveDisorder, State, 
