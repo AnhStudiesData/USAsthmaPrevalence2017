@@ -13,7 +13,7 @@ _Exhibit 1 - Overview of the Data_
 
 ```{r library_and_data, message = F, warning = F}
 ##Visualisation libraries
-library(tidyverse)
+library(dplyr)
 library(scales)
 library(viridis)
 library(cowplot)
