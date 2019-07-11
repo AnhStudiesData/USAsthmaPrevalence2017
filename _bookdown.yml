@@ -1,4 +1,4 @@
-book_filename: "AsthmaBook"
+book_filename: "US Asthma Prevalence Study (2017)"
 delete_merged_file: true
 repo: "https://github.com/AnhStudiesData/USAsthmaPrevalence2017"
 output_dir: docs
