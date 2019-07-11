@@ -1,6 +1,6 @@
 book_filename: "AsthmaBook"
 delete_merged_file: true
-repo: "https://github.com/AnhStudiesData/USAsthmaPrevalenceStudy"
+repo: "https://github.com/AnhStudiesData/USAsthmaPrevalence2017"
 output_dir: docs
 new_session: yes
 language:
