@@ -2,6 +2,12 @@
 
 ##Logistic Regression - Full Model Fit Statistic
 
+```{r install_more, message=F, warning = F, echo=F}
+install.packages('boot')
+install.packages('coefplot')
+install.packages('ROCR')
+```
+
 ```{r data_and_library_for_predictive, message = F, warning = F}
 library(tidyverse)
 library(scales)
